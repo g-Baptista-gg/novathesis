@@ -74,12 +74,46 @@
 
 % Fazer state of the art sobre satelites e MCDF
 
+\section{Atomic Structure Calculations}
+
+When studying a system composed of multiple charged bodies, one must consider all the existing interactions. Whilst there are known solutions for the 2-bodies Hydrogenoid systems, with the presence of more non spatially-bound particles (for example an electron, while using the Born-Oppenheimer approximation where the nuclei are considered at rest at a fixed position) there is just no analytic solution for the Schrödinger Equation. That way, there was a need for the development of numerical solutions able to solve this problem.
+
+\subsection{The non-relativistic Hamiltonian}
+
+The first approach used in order to solve the many-bodies problem used a non-relativistic consideration. This way, the used Hamiltonian consisted on simply the sum of the system's non-relativistic momentum-related energies and the Coulomb interactions between bodies, while still considering the Born-Oppenheimer approximation.
+
+Essentially, and in atomic units:
+
+\begin{equation}
+    H= \underbrace{\displaystyle\sum_i^N \dfrac{1}{2}\laplacian_i  -\frac{Z}{r_i}}_{\text{Individual Hamiltonian}} + \underbrace{\sum_{i<j}^{j}\dfrac{1}{r_{ij}}}_{\text{Pair repulsion}}
+\end{equation}
+
+\subsubsection{The Hartree-Fock Method}
+
+Hartree developed an iterative method, further enhanced by Fock and Slater,
+
+\subsubsection{Radiative transition type}
+
+One photon transition rates:
+
+Non-relativistic: $dA_{10}=\dfrac{e^2 \omega}{2\pi \hbar c}\abs{\bra{0} \vb*{p\epsilon}^*\cdot\dfrac{1}{m_e c}\ket{1}}^2$
+
 \subsection{The Dirac Equation}
 
 \subsubsection{Breit Interaction}
+\subsubsection{Vacuum Polarization}
+\subsubsection{Self-Consistency}
+\subsubsection{Hartree Method}
+% Slater
+\subsubsection{General Matrix of Elements}
+
 
 
 \section{State of the Art}
+
+\subsection{MCDF}
+
+\subsection{Copper's characteristic x-rays}
 
 \section{Objective list}
 
