@@ -87,6 +87,7 @@ Essentially, and in atomic units:
 
 \begin{equation}
     H= \underbrace{\displaystyle\sum_i^N \dfrac{1}{2}\laplacian_i  -\frac{Z}{r_i}}_{\text{Individual Hamiltonian}} + \underbrace{\sum_{i<j}^{j}\dfrac{1}{r_{ij}}}_{\text{Pair repulsion}}
+    \label{eq:nonRelHam}
 \end{equation}
 
 \subsubsection{The Hartree-Fock Method}
@@ -109,16 +110,23 @@ Many scientists, such as Klein, Gordon and later Fock, had already conceived a r
  This new approach was, however, still faulty, due to only describing spin 0 particles (e.g., some mesons), and making use of a second order derivative in the time-like component.
 
  \begin{equation}
-    E=\sqrt{c^2p^2+m^2c^4}
+    E=\sqrt{c^2\vb*{p}^2+m^2c^4}
     \label{eq:EnMomRel}
  \end{equation}
 
+Which can be derived from:
+
  \begin{equation}
-    -\hbar^2 \pdv[2]{t} \vb*{\Psi}=-c^2\hbar^2\laplacian + m^2c^4\vb*{\Psi}
+    \dfrac{E^2}{c^2}= \vb*{p}^2 +m^2c^2 \Leftrightarrow \dfrac{E^2}{c^2}-\vb*{p}^2=m^2c^2\Leftrightarrow p^\mu p_\mu = m^2c^2
+ \end{equation}
+ Just as a reminder, since now relativistic effects are being taken into account, the momentum vector is now a 4-vector, composed of one time-like and 3 space-like components: $p^\mu=(p^0.p^1,p^2,p^3)=(p^0,\vb*{p})=\qty(\dfrac{E}{c},\vb*{p})$
+
+ \begin{equation}
+    -\hbar^2 \pdv[2]{t} \vb*{\psi}=-c^2\hbar^2\laplacian + m^2c^4\vb*{\psi}
     \label{eq:KG}
 \end{equation}
 
- Dirac took a spin at rewriting the energy-momentum relation, ending up with an equivalent equation\eqref{eq:diracEnergy}, involving $4\times 4$ matrices, due to the 4 dimensions at play, and incorporating spins into the equation by making use of the now famous Pauli matrices, $\vb*{\sigma}$:
+ Dirac took a spin at rewriting the energy-momentum relation, ending up with an equivalent equation\eqref{eq:diracEnergy}, involving $4\times 4$ matrices, due to the 4 relativistic dimensions at play, and incorporating spins into the equation by making use of the now famous Pauli matrices, $\vb*{\sigma}$:
 
  \begin{equation}
     E=c\vb*{\alpha}\cdot \vb*{p}+{\beta} mc^2,\quad \vb*{\alpha}=\qty(\alpha_1,\alpha_2,\alpha_3)
@@ -126,31 +134,82 @@ Many scientists, such as Klein, Gordon and later Fock, had already conceived a r
  \end{equation}
 
  \begin{align}
-    \alpha_i&=\mqty(0 & {\sigma}_i\\ {\sigma}_i&0) & {\beta}&=\mqty(I & 0 \\ 0 &-I) &I&=\mqty(1&0\\0&1)\\
+    \alpha_i&=\mqty(0 & {\sigma}_i\\ {\sigma}_i&0) & {\beta}&=\mqty(I_2 & 0 \\ 0 &-I_2) &I_2&=\mqty(1&0\\0&1)\\
     \sigma_1&=\mqty(0&1\\1&0) & \sigma_2&=\mqty(0&-i\\i&0)& \sigma_3&=\mqty(1&0\\0&-1)
  \end{align}
 
  In order to fully comprehend this shift of notation, one should equate the square of the two equations, \eqref{eq:EnMomRel} and \eqref{eq:diracEnergy}, and confirm if logic still stands.
 
  \begin{equation}
-    c^2 p^2 + m^2c^4 = c^2\vb*{\alpha}^2\vb*{p}^2+2 m c^3 \vb*{\alpha}\cdot \vb*{p} \cdot \beta + \beta^2 m^2 c^4
+    c^2 \vb*{p}^2 + m^2c^4 = c^2\vb*{\alpha}^2\vb*{p}^2+2 m c^3 \vb*{\alpha}\cdot \vb*{p} \cdot \beta + \beta^2 m^2 c^4
  \end{equation}
 
  In order for this equation to make sense, the following conditions must be true (which in fact, they are):
 
 \begin{gather}
     \begin{cases}
-        c^2p^2=c^2\vb*{\alpha}^2 p^2  &\Leftrightarrow \vb*{\alpha}^2=1\\
+        c^2\vb*{p}^2=c^2\vb*{\alpha}^2 p^2  &\Leftrightarrow \vb*{\alpha}^2=1\\
         0=2mc^3  p \vb*{\alpha} \beta &\Leftrightarrow \vb*{\alpha} \beta =0\\
         m^2c^4=\beta^2 m^2c^4     &\Leftrightarrow \beta^2 =1
     \end{cases}
 \end{gather}
 
+As expected, the eigenfunctions obtained from solving this equation, will now have a 4th time-like component, in addition to the already expected 3 space-like components.
 
-\subsubsection{Breit Interaction}
+
+With all the previous considerations taken into account, one can now construct Dirac's free-particle equation\eqref{eq:DiracEq}:
+
+\begin{equation}
+    i\hbar \pdv{t}\vb*{\psi}=\qty( c\vb*{\alpha}\cdot \vb*{p} +\beta m c^2)\vb*{\psi}=\mqty(mc^2 I_2& -i\hbar c \vb*{\sigma}\cdot \grad\\-i\hbar c \vb*{\sigma}\cdot \grad & -mc^2 I_2)\cdot \mqty(\psi_1\\\vdots\\\psi_4)
+    \label{eq:DiracEq}
+\end{equation}
+
+This equation, however, as previously mentioned above, can only describe a single particle present in a field-free region. In order to account for the existence of a field, such as the electromagnetic field, derived from the four-potential $A^\mu$, composed by the electric scalar potential, $A^0=\phi$, and the vector potential, $(A^1,A^2,A^3)=\vb*{A}$:
+
+
+\begin{equation}
+    p^\mu \rightarrow p^\mu - e A^\mu,\quad A^\mu = \qty(\phi,\vb*{A})
+\end{equation}
+
+The Hamiltonian can now be rewritten as to account for the presence of the electromagnetic field \eqref{eq:DiracEqField}. This way it is possible to include, for example, the electron-nucleus Coulomb attraction.
+
+\begin{equation}
+    H_D=-e\phi + \beta m c^2 + \vb*{\alpha}\qty(c\vb*{p}+e\vb*{A})
+    \label{eq:DiracEqField}
+\end{equation}
+
+For a central potential, as is the one generated by the nuclear charge, the 3 space-like components from the four-potential are null, and the time-like component, $\phi=\dfrac{Z e}{r}$. The equation gains now a more recognizable term:
+
+\begin{equation}
+    H_D=-\frac{e^2 Z}{r} + \beta m c^2 + \vb*{\alpha}\cdot\vb*{p}c
+    \label{eq:diracHam}
+\end{equation}
+
+\subsection{The Dirac-Breit Equation}
+
+Once again, when considering a system composed of many bodies, one must consider all the present interactions, namely, the electron-electron repulsion in an atom.
+ Breit, in 1929, had already created a relativistic approach to treat the electron-electron interactions, consisting on a set of equations building upon the classical non-relativistic Hamiltonian from equation \eqref{eq:nonRelHam}, which can be consulted in appendix \ref{ap:Breit}.
+  Breit's equations are able to account for angular momenta couplings and estimate level energy splittings, the change of a particle's apparent mass as a function of velocity, and even include the interaction of an applied magnetic field.\cite{Bethe1977}
+
+  It is quite obvious Breit's equations introduce a great complexity in the search of the new Hamiltonian's eigenfunctions. However, when trying to include Breit's considerations to Dirac's equation, one must add the following operator to the one present in equation \eqref{eq:diracHam}:
+
+  \begin{equation}
+    H_B = \sum_{i>j}\frac{e^2}{r_{ij}} - e^2\qty(\frac{\vb*{\alpha}_i\vb*{\alpha}_j}{r_{ij}}+\frac{\qty(\vb*{\alpha}_i \grad_i)\qty(\vb*{\alpha}_j \grad_j)r_{ij}}{2})  
+  \end{equation}
+
+\subsection{The \gls{MCDFGME} Method}
+
+
+
+
+\subsection{QED Contributions}
+\subsubsection{Self-Energy}
 \subsubsection{Vacuum Polarization}
+
+
 \subsubsection{Self-Consistency}
-\subsubsection{Hartree Method}
+
+
 % Slater
 \subsubsection{General Matrix of Elements}
 
@@ -158,7 +217,6 @@ Many scientists, such as Klein, Gordon and later Fock, had already conceived a r
 
 \section{State of the Art}
 
-\subsection{MCDF}
 
 \subsection{Copper's characteristic x-rays}
 
