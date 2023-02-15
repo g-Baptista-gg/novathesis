@@ -76,7 +76,8 @@
 
 \section{Atomic Structure Calculations}
 
-When studying a system composed of multiple charged bodies, one must consider all the existing interactions. Whilst there are known solutions for the 2-bodies Hydrogenoid systems, with the presence of more non spatially-bound particles (for example an electron, while using the Born-Oppenheimer approximation where the nuclei are considered at rest at a fixed position) there is just no analytic solution for the Schrödinger Equation. That way, there was a need for the development of numerical solutions able to solve this problem.
+When studying a system composed of multiple charged bodies, one must consider all the existing interactions. Whilst there are known solutions for the 2-bodies Hydrogenoid systems, with the presence of more non spatially-bound particles (for example an electron, while using the 
+Born-Oppenheimer approximation where the nuclei are considered at rest at a fixed position) there is just no analytic solution for the Schrödinger Equation. That way, there was a need for the development of numerical solutions able to solve this problem.
 
 \subsection{The non-relativistic Hamiltonian}
 
@@ -96,9 +97,55 @@ Hartree developed an iterative method, further enhanced by Fock and Slater,
 
 One photon transition rates:
 
-Non-relativistic: $dA_{10}=\dfrac{e^2 \omega}{2\pi \hbar c}\abs{\bra{0} \vb*{p\epsilon}^*\cdot\dfrac{1}{m_e c}\ket{1}}^2$
+Non-relativistic: $dA_{10}=\dfrac{e^2 \omega}{2\pi \hbar c}\abs{\mel**{0}{ \vb*{p\epsilon}^*\cdot\dfrac{1}{m_e c}}{1}}^2$
 
 \subsection{The Dirac Equation}
+
+It is no secret that the Schrödinger equation has some very considerable limitations. The fact that it does not account for the existence of the electron's spin and the lack of consideration of relativistic effects are some of the most impactful setbacks.
+
+That way, a new equation was developed by Paul Dirac, in 1928\cite{Dirac}, one taking into account now not the classical 3 dimensional space components, but the relativistic four components (1 time-like and 3 space-like).
+
+Many scientists, such as Klein, Gordon and later Fock, had already conceived a relativistic correction to Schrödinger's equation, more commonly known as the Klein-Gordon equation\eqref{eq:KG}, where the free-particle energy makes use of the relativistic momentum-energy relation \eqref{eq:EnMomRel}, making Schrödinger's equation now also Lorentz-invariant.
+ This new approach was, however, still faulty, due to only describing spin 0 particles (e.g., some mesons), and making use of a second order derivative in the time-like component.
+
+ \begin{equation}
+    E=\sqrt{c^2p^2+m^2c^4}
+    \label{eq:EnMomRel}
+ \end{equation}
+
+ \begin{equation}
+    -\hbar^2 \pdv[2]{t} \vb*{\Psi}=-c^2\hbar^2\laplacian + m^2c^4\vb*{\Psi}
+    \label{eq:KG}
+\end{equation}
+
+ Dirac took a spin at rewriting the energy-momentum relation, ending up with an equivalent equation\eqref{eq:diracEnergy}, involving $4\times 4$ matrices, due to the 4 dimensions at play, and incorporating spins into the equation by making use of the now famous Pauli matrices, $\vb*{\sigma}$:
+
+ \begin{equation}
+    E=c\vb*{\alpha}\cdot \vb*{p}+{\beta} mc^2,\quad \vb*{\alpha}=\qty(\alpha_1,\alpha_2,\alpha_3)
+    \label{eq:diracEnergy}
+ \end{equation}
+
+ \begin{align}
+    \alpha_i&=\mqty(0 & {\sigma}_i\\ {\sigma}_i&0) & {\beta}&=\mqty(I & 0 \\ 0 &-I) &I&=\mqty(1&0\\0&1)\\
+    \sigma_1&=\mqty(0&1\\1&0) & \sigma_2&=\mqty(0&-i\\i&0)& \sigma_3&=\mqty(1&0\\0&-1)
+ \end{align}
+
+ In order to fully comprehend this shift of notation, one should equate the square of the two equations, \eqref{eq:EnMomRel} and \eqref{eq:diracEnergy}, and confirm if logic still stands.
+
+ \begin{equation}
+    c^2 p^2 + m^2c^4 = c^2\vb*{\alpha}^2\vb*{p}^2+2 m c^3 \vb*{\alpha}\cdot \vb*{p} \cdot \beta + \beta^2 m^2 c^4
+ \end{equation}
+
+ In order for this equation to make sense, the following conditions must be true (which in fact, they are):
+
+\begin{gather}
+    \begin{cases}
+        c^2p^2=c^2\vb*{\alpha}^2 p^2  &\Leftrightarrow \vb*{\alpha}^2=1\\
+        0=2mc^3  p \vb*{\alpha} \beta &\Leftrightarrow \vb*{\alpha} \beta =0\\
+        m^2c^4=\beta^2 m^2c^4     &\Leftrightarrow \beta^2 =1
+    \end{cases}
+\end{gather}
+
 
 \subsubsection{Breit Interaction}
 \subsubsection{Vacuum Polarization}
