@@ -1,3 +1,5 @@
 synchrotron
 Évora
 Hydrogenoid
+wavefunction
+wavefunctions
