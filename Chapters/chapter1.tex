@@ -273,6 +273,33 @@ EXPLICAR A GENERAL MATRIX OF ELEMENTS.
 \subsection{Copper's characteristic x-rays}
 \subsection{MCDFGME capabilities}
 
-\section{Objective list}
+\section{Objectives}
+
+\section{Methodology}
+
+As previously mentioned before, in this thesis, atomic relaxation transitions where the ejected inner shell electron, responsible for the generated hole, was, not sent to the continuum, but excited to an upper state.
+
+In order to use \gls{MCDFGME}, since it is written in FORTRAN, there will be a multitude of I/O files, with the extension \textit{.f0X}. The most important file extensions are \textit{.f05}, the input file, where the calculation settings are indicated; \textit{.f06}, where the cyclical energy results will be displayed, among others, such as the non-diagonal matrix element overlaps, both important to evaluate the convergence.
+ Other file extensions, such as \textit{.f09} can be quite useful for debugging processes, and for calculating other atomic parameters, such as shake probabilities, which will not be of relevance as of this thesis.
+
+ An example of a normal atomic structure calculation for an excited Copper atom (which has a ground state configuration of $1s^2 2s^2 2p^6 3s^2 3p^6 3d^{10} 4s^1$) is as follows:
+
+ One starts by choosing the excitation upper orbital, and by  writing, in a text file all the possible 1 hole configurations from where the electron may have originated from. An example can be found in Annex ????. This represents all the possible excited states where the electron is in the chose orbital.
+ 
+ The same process is now performed for a 2 hole configuration, where an additional ionization occurred. This represents the possible states after the occurrence of the Auger process, which is in competition with the radiative decay.
+
+ Now, a \textit{bash} script, \textit{runMCDFEC.sh} is to be executed. Now, it will be possible to choose the atomic number of the element in study, the isotope mass, and, if one wishes so, to perform the calculations for an exotic atom, where, instead of electrons, other particles such as muons, negative hadrons and antiparticles can orbit the nucleus. 
+ The script will, for all given configurations, calculate all the possible spin-orbit couplings and eigenvalues, and then finally apply the \gls{MCDFGME} method.
+
+ Depending on the excitation orbital, there will be thousands to tens of thousands of possibilities for the final configuration, with this number increasing with the quantum number of angular momentum, $l$, of the orbital.
+ 
+ However, not all the calculations automatically performed will converge. Each time, a couple of hundreds of computed orbitals will fail convergence. In a file, generated for the compilation of the calculation results, these orbitals will be missing the total system's energy, or will display a significant energy difference for the results of using two different methods, \textbf{breaking the method's self-consistency???}.
+
+ The configurations that were not able to converge will now have to be converged by hand. In order to do this, their \textit{.f05} will have to be edited, where different methods will be chosen for the calculation for each specific orbital. This can be quite time-consuming, as there are multiple possible methods and possible combinations, and there is just no right way to converge an orbital, hence why this step can even take a couple of weeks to finish.
+
+ After eliminating all the convergence problems, the radiative transition rates will be calculated, by operating the transition operator on all the possible 1 hole - 1 hole configuration pair combinations. The same will follow for all the pairs of 1hole - 2 holes configurations, in order to compute the auger transition rates. Finally, the process is repeated for the 2 holes - 2 holes configurations, for the radiative transitions of the auger-generated satellite states.
+
+ The energy of the transition is calculated through the configuration pair's energetic difference, and the transition's natural broadening is calculated by:
 
 \section{Work Plan}
+
