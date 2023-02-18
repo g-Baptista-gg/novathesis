@@ -3,3 +3,6 @@ synchrotron
 Hydrogenoid
 wavefunction
 wavefunctions
+Indelicato
+Bieroń
+Jönsson
