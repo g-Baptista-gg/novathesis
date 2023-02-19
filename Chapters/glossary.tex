@@ -8,7 +8,22 @@
 
 \typeout{NT FILE glossary.tex}%
 
-\newglossaryentry{computer}{
-	name={computer}, 
-	description={An electronic device which is capable of receiving information (data) in a particular form and of performing a sequence of operations in accordance with a predetermined but variable set of procedural instructions (program) to produce a result in the form of information or signals. This is a test that adds a citation~\cite{Artho04} to the glossary!}
+\newglossaryentry{fourvec}{
+	name={four-vector}, 
+	description={Vector used in special relativity composed of 4 components, one scalar time-like, and three vectorial space-like. These vectors behave in special way, such as their norm being \gls{lorentzinvariance}. Can be written in covariant, $X_{\mu}$, and contravariant form, $X^{\mu}$, with the difference being the sign of the time-like components. Example of a contravariant four vector: $X^{\mu}=(X^0,X^1,X^2,X^3)=(X^0,\vb*{X})$}
 }
+\newglossaryentry{lorentzinvariance}{
+	name={Lorentz invariant},
+	description={A Lorentz invariant scalar, obtained, for example, from a \gls{MinkNorm}, does not change when operated by a Lorentz Transformation.}
+}
+
+\newglossaryentry{MinkNorm}{
+	name={Minkowski norm}, 
+	description={Yields the Lorentz Invariant norm for a \gls{fourvec}: $p_{\mu}p^{\mu}$. Equivalent to the dot product of a classical vector.}
+}
+
+\newglossaryentry{virtual photons}{
+	name={virtual photons},
+	description={While in reality, during a Coulomb interaction, 'real' particles are not exchanged, the electromagnetic field is still mediated by photons. This way virtual photons are tools used in order to better represent electromagnetic interactions.}
+}
+
