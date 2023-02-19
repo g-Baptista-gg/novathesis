@@ -128,12 +128,47 @@ These processes, however will not be studied through this thesis, due to the wor
 
 \subsubsection{Transition notation}
 
-The characteristic radiation obtained from the electronic structure relaxation of a post-ionization unstable atomic system is one of the main ways of identifying an atomic element, due to the photons emitted from different elements possessing some distinct values of energy, forming well-defined energy lines when observed in a spectrometer. 
+The characteristic radiation obtained from the electronic structure relaxation of a post-ionization unstable atomic system is one of the main ways of identifying an atomic element, due to the photons emitted from different elements possessing some distinct values of energy, forming well-defined energy lines when observed in a spectrometer. These lines have specific notations denoting them by vacancy/hole and the electron's orbital.
+A very illustrative diagram, exemplifying some transitions can be found in Appendix~\ref{ap:trans}.
+
+Througout this thesis, mostly Siegbahn notation will be used, but should the reader prefer
+IUPAC's notation, one can convert one into the other using the following Table~\ref{tab:siegIUPAC}.
+
+\begin{table}[h!]
+    \centering
+    \caption{Siegbahn VS IUPAC notation. Adapted from \cite{Vitha2015}}\label{tab:siegIUPAC}
+    \rowcolors{1}{}{GhostWhite}
+    \begin{tabular}{cl |cl | cl}
+        \toprule Siegbahn &IUPAC&Siegbahn &IUPAC&Siegbahn &IUPAC\\
+        \midrule
+        $K_{\alpha_1}$& $K-L_3$&$L_{\alpha_1}$&$L_3 - M_5$&$L_{\gamma_1}$&$L_2 - N_4$ \\
+        $K_{\alpha_2}$&$K-L_2$&$L_{\alpha_2}$&$L_3 - M_4$&$L_{\gamma_2}$&$L_1 - N_1$ \\
+        $K_{\beta_1}$&$K-M_3$&$L_{\beta_1}$&$L_2 - M_4$&$L_{\gamma_3}$&$L_1 - N_2$ \\
+        $K_{\beta_2}^{I}$&$K-N_3$&$L_{\beta_2}$&$L_3 - N_5$&$L_{\gamma_4}$&$L_1 - O_3$ \\
+        $K_{\beta_2}^{II}$&$K-N_2$&$L_{\beta_3}$&$L_1 - M_3$&$L_{\gamma_4^{'}}$&$L_1 - O_2$ \\
+        $K_{\beta_3}$&$K-M_2$&$L_{\beta_4}$&$L_1 - M_2$&$L_{\gamma_5}$&$L_2 - N_1$ \\
+        $K_{\beta_4}^{I}$&$K-N_5$&$L_{\beta_5}$&$L_3 - O_{4,5}$&$L_{\gamma_5}$&$L_2 - O_4$ \\
+        $K_{\beta_4}^{II}$&$K-N_4$&$L_{\beta_6}$&$L_3 - N_1$&$L_{\gamma_8}$&$L_2 - O_1$ \\
+        $K_{\beta_4}^{x}$&$K-N_4$&$L_{\beta_7}$&$L_3 - O_1$&$L_{\gamma_8^{'}}$&$L_2 - N_{5,6}$ \\
+        $K_{\beta_5}^{I}$&$K-M_5$&$L_{\beta_8}$&$L_3 - N_{6,7}$&$L_{\eta}$&$L_2 - M_1$ \\
+        $K_{\beta_4}^{II}$&$K-M_4$&$L_{\beta_9}$&$L_1 - M_5$&$L_{l}$&$L_3 - M_1$ \\
+        &&$L_{\beta_9}$&$L_1 - M_4$&$L_{s}$&$L_3 - M_3$\\
+        &&$L_{\beta_9}$&$L_3 - N_4$&$L_{t}$&$L_3 - M_2$\\
+        &&$L_{\beta_9}$&$L_2 - M_3$&$L_{u}$&$L_3 - N_{6,7}$\\
+        &&&&  $L_{v}$&$L_2 - N_{6,7}$\\ \bottomrule
+    \end{tabular}
+\end{table}
 
 \subsubsection{Excitation as a vacancy generator}\label{sec:exc}
 
+As previously mentioned, thought this thesis, while the study is focused on the characteristic radiation emitted during the atomic relaxation process, the vacancy generation method will be due to an excitation (Figure~\ref{fig:exc}), instead of an ionization. This is one possibility of the many so-called satellite states, where the electronic configuration present during the relaxation process is not the commonly considered ground state ionization.
+The characteristic radiation from these states, may be one of the keys needed in order to fully comprehend and deconvolute an element's emission spectra.
 
 
+\subsection{Transition Shape}
+
+
+Falar de larguras, intensidades, racios de populaçao P1/2 P3/2, 2 photonblabla, monopolares, quadrapolares, etcect
 
 
 
@@ -167,7 +202,7 @@ The characteristic radiation obtained from the electronic structure relaxation o
         \draw (-0.4,0) -- (-0.6,0) node[left]{-E$_{\text{b}_1}$};
         \draw (-0.4,2) -- (-0.6,2) node[left]{-E$_{\text{b}_2}$};
     \end{tikzpicture}
-    \caption{Resonant Photoexcitation}
+    \caption{Resonant Photoexcitation}\label{fig:exc}
 \end{figure}
 
 
@@ -342,7 +377,7 @@ In fact solving this equation yields two different solutions, one por particles,
 \subsection{The Dirac-Breit Equation}
 
 Once again, when considering a system composed of many bodies, one must consider all the present interactions, namely, the electron-electron repulsion in an atom.
- Breit, in 1929, had already created a relativistic approach to treat the electron-electron interactions, consisting on a set of equations building upon the classical non-relativistic Hamiltonian from equation \eqref{eq:nonRelHam}, which can be consulted in appendix \ref{ap:Breit}.
+ Breit, in 1929, had already created a relativistic approach to treat the electron-electron interactions, consisting on a set of equations building upon the classical non-relativistic Hamiltonian from equation \eqref{eq:nonRelHam}, which can be consulted in Appendix \ref{ap:Breit}.
   Breit's equations are able to account for angular momenta couplings and estimate level energy splittings, the change of a particle's apparent mass as a function of velocity, and even include the interaction of an applied external magnetic field.\cite{Bethe1977}
 
   It is quite obvious Breit's equations introduce a great complexity in the search of the new Hamiltonian's eigenfunctions. However, when trying to include an approximation of Breit's considerations into Dirac's equation, one must add the following operator to the one present in equation \eqref{eq:diracHam}:
