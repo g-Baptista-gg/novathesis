@@ -13,6 +13,16 @@
 \section{Theoretical Introduction}
 \subsection{Characteristic x-rays}
 
+\subsubsection{Ionization as a vacancy generator}
+
+When an atomic system is in a stable state, the electrons orbiting the nucleus will be occupying fixed quantum states, defined by their principal atomic number, $n$, angular momentum, $l$, and spin, $s$. Electrons are also fermions, they must respect Pauli's exclusion principle, each occupying a single state, only occupied by that single electron.
+ These quantum numbers will provide information of their specific electron's wavefunction, which, when evaluated by operation of the Hamiltonian, will yield that state's energy.
+
+Furthermore, beside the occupied states, more energetic unoccupied states will still be part of the systems eigenfunctions basis. The work performed in this thesis will explore what would happen should the system experience a perturbation that changes what the occupied and unoccupied states are, while still preserving the particles within it.
+
+
+X-ray fluorescence spectroscopy has it's many uses and applications in a wide range of scientific areas. In this form of spectroscopy, the element at study, composed of the nucleus and $N$ orbiting electrons, are bombarded with x-rays, leading to the photoionization of inner-shell electrons, leaving a vacancy where the ejected electron used to be.
+
 \begin{figure}[h!]
     \centering
     \begin{tikzpicture}[
@@ -38,6 +48,95 @@
     \end{tikzpicture}
     \caption{Photoionization}
 \end{figure}
+
+The atomic structure, now composed of $N-1$ electrons will be left in an energetically unstable state, due to there being other possible less energetic configurations. This will lead to processes of atomic relaxation, where the system will be rearranged in order to find a more energetically favorable configuration.
+
+The main processes for this rearrangement are two different competing processes, radiative relaxation, where an electron from a less bound orbital changes state in order to now occupy the one where the vacancy was, emitting an x-ray photon of characteristic energy, allowing for the easy identification of the element at study.
+The other competing process, the non-radiative relaxation, more commonly know as the auger process, will still have the electron transit between states, but where before a photon was emitted, now a new ionization will occur, where a weakly bound electron will leave to the continuum.
+
+
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \begin{tikzpicture}[
+            >={Stealth[scale=2]},
+            photon/.style={decorate,decoration={snake,post length=3mm}}
+        ]
+            \draw (0,0) -- (3,0) node[right]{Inner shell};
+            \draw[fill=blue!50!white] (1,0) circle (0.25) node {$\uparrow$};
+            \draw[fill=blue!50!white] (2,0) circle (0.25) node {$\downarrow$};
+            \draw[->,photon](2.25,0.25)  --  (3.5,1)node[above right]{$h\nu$=E$_{\text{b}_1}$-E$_{\text{b}_2}$};
+        
+            \draw[dashed] (0,3) -- (3,3);
+            \draw[dashed,draw opacity=0.5] (0,3.1) -- (3,3.1) node[right]{Continuum};
+            \draw[dashed,opacity=0.25] (0,3.2) -- (3,3.2);
+            \draw[dashed,opacity=0.1] (0,3.3) -- (3,3.3);
+            \draw[dashed,opacity=0.05] (0,3.4) -- (3,3.4);
+            \draw[->] (2,1.7) -- (2,0.3);
+
+            \draw (0,2) -- (3,2) node[right]{Upper level};
+            \draw[fill=blue!50!white,dashed,opacity=0.5] (2,2) circle (0.25);
+
+
+
+            \draw[-Stealth] (-0.5,-1) -- (-0.5,4) node[anchor=south east]{E};
+            \draw (-0.4,3) -- (-0.6,3) node[left]{0};
+            \draw (-0.4,0) -- (-0.6,0) node[left]{-E$_{\text{b}_1}$};
+            \draw (-0.4,2) -- (-0.6,2) node[left]{-E$_{\text{b}_2}$};
+        \end{tikzpicture}
+        \caption{Radiative Decay}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+        \begin{tikzpicture}[
+            >={Stealth[scale=2]},
+            photon/.style={decorate,decoration={snake,post length=3mm}}
+        ]
+            \draw (0,0) -- (3,0) node[right]{Inner shell};
+            \draw (0.5,1.5) -- (1.5,1.5);
+            \draw[fill=blue!50!white] (1,0) circle (0.25) node {$\uparrow$};
+            \draw[fill=blue!50!white] (2,0) circle (0.25) node {$\downarrow$};
+            
+            \draw[dashed] (0,3) -- (3,3);
+            \draw[dashed,draw opacity=0.5] (0,3.1) -- (3,3.1) node[right]{Continuum};
+            \draw[dashed,opacity=0.25] (0,3.2) -- (3,3.2);
+            \draw[dashed,opacity=0.1] (0,3.3) -- (3,3.3);
+            \draw[dashed,opacity=0.05] (0,3.4) -- (3,3.4);
+            \draw[->] (2,1.7) -- (2,0.3);
+            \draw[->] (1,1.8) -- (1,3.2);
+    
+            \draw (0,2) -- (3,2) node[right]{Upper level};
+            \draw[fill=blue!50!white,dashed,opacity=0.5] (2,2) circle (0.25);
+            \draw[fill=blue!50!white,dashed,opacity=0.5] (1,1.5) circle (0.25);
+    
+            \draw[fill=blue!50!white] (1,3.5) circle (0.25) node at (1.5,4){E$_{\text{k}}$=$E_{b_1}-E_{b_2}-E_{b_3}$};
+    
+            \draw[-Stealth] (-0.5,-1) -- (-0.5,4) node[anchor=south east]{E};
+            \draw (-0.4,3) -- (-0.6,3) node[left]{0};
+            \draw (-0.4,0) -- (-0.6,0) node[left]{-E$_{\text{b}_1}$};
+            \draw (-0.4,2) -- (-0.6,2) node[left]{-E$_{\text{b}_2}$};
+            \draw (-0.4,1.5) -- (-0.6,1.5) node[left]{-E$_{\text{b}_3}$};
+        \end{tikzpicture}
+        \caption{Auger Transition}
+    \end{subfigure}
+\end{figure}
+
+In reality, when the initial vacancy is generated due to an ionization, two more processes can occur: Shake-offs and shake-ups. When this processes occur, during the ionization, one other electron may become unbound, occurring a second ionization, in the shake-off process, or may be excited to an upper state, during shake-up.
+These processes occur due to the fact that the system, while it may have had a set of eigenstates before ionization, was changed when an electron was removed, leading to a change in the Hamiltonian, and the new system not being able to be accurately described by the previous system's states.  
+These processes, however will not be studied through this thesis, due to the work in question not dealing with an initial ionization, but with an excitation, as it will be possible to understand in section \ref{sec:exc}.
+
+
+\subsubsection{Transition notation}
+
+The characteristic radiation obtained from the electronic structure relaxation of a post-ionization unstable atomic system is one of the main ways of identifying an atomic element, due to the photons emitted from different elements possessing some distinct values of energy, forming well-defined energy lines when observed in a spectrometer. 
+
+\subsubsection{Excitation as a vacancy generator}\label{sec:exc}
+
+
+
+
+
+
 
 
 \begin{figure}[h!]
@@ -71,8 +170,6 @@
     \caption{Resonant Photoexcitation}
 \end{figure}
 
-
-% Fazer state of the art sobre satelites e MCDF
 
 \section{Atomic Structure Calculations}
 
@@ -153,11 +250,6 @@ In a very simplified way, the self-consistent Hartree-Fock computational method 
 
 
 
-\subsubsection{Radiative transition type}
-
-One photon transition rates:
-
-Non-relativistic: $dA_{10}=\dfrac{e^2 \omega}{2\pi \hbar c}\abs{\mel**{0}{ \vb*{p\epsilon}^*\cdot\dfrac{1}{m_e c}}{1}}^2$
 
 \subsection{The Dirac Equation}
 
@@ -281,7 +373,12 @@ EXPLICAR A GENERAL MATRIX OF ELEMENTS.
 
 \subsection{MCDFGME capabilities}
 
-It has been noted multiple times that \gls{MCDFGME} code thrives in the calculation of super-heavy elements and highly-charged ions, where relativistic and QED effects are in prevalence ?
+It has been noted multiple times that \gls{MCDFGME} code thrives in atomic structure calculations of super-heavy elements and highly-charged ions, where relativistic and QED effects are in prevalence \cite{Indelicato2011,Indelicato1987,Gorceix1987}. However, it has also been proven to be an excellent tool for the calculation of less ionized systems \cite{Guerra2021}.
+
+In addition, the \gls{MCDFGME} is able to calculate radiative and auger transition rates for the calculated configurations, leading to the possibility to yield results that can be used in the simulation of Theoretical spectra, due to being able to provide the transition's intensity and natural width. Since it is able to perform calculations even for exotic atoms, it can be used to further understand many QED phenomena, aiding in the theoretical calculations supporting experimental data \cite{Paul2021}.
+
+It should also be of note that there are many other code alternatives. While \gls{MCDFGME}, which is a close-source project, provides a very high precision in the performed calculations at a high computational cost, \gls{FAC}, is an open source code which requires less computational time for the calculations, however, it lacks \gls{MCDFGME}'s precision, since it only is able to consider all the spin-orb couplings, but not the possible configurations originating them. 
+It can, however, calculate other collisional processes, such as electronic impact excitation cross-sections \cite{FAC}
 
 
 
@@ -311,7 +408,11 @@ In order to use \gls{MCDFGME}, since it is written in FORTRAN, there will be a m
 
  After eliminating all the convergence problems, the radiative transition rates will be calculated, by operating the transition operator on all the possible 1 hole - 1 hole configuration pair combinations. The same will follow for all the pairs of 1hole - 2 holes configurations, in order to compute the auger transition rates. Finally, the process is repeated for the 2 holes - 2 holes configurations, for the radiative transitions of the auger-generated satellite states.
 
- The energy of the transition is calculated through the configuration pair's energetic difference, and the transition's natural broadening is calculated by:
+ The energy of the transition is calculated through the configuration pair's energetic difference, and the transition's natural broadening by:
+
+
+
 
 \section{Work Plan}
 
+The work performed in this thesis will 
