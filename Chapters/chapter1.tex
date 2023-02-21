@@ -441,7 +441,7 @@ This set of terms will account for the fact that Coulomb interactions, mediated 
 As previously mentioned in section \ref{sec:HF}, there is a need for a numerical method in order to compute and find the eigenfunctions for a many-body Hamiltonian. While the Hartree-Fock method was able to reasonably solve the non-relativistic problem, now, while considering the Dirac-Breit Hamiltonian from equations \eqref{eq:diracHam} and \eqref{eq:BreitHam}, there is a need for a new method.
 
 Hence, the state of the art \gls{MCDFGME} arises. This self-consistent iterative method, based on the same method present in section \ref{sec:HF}, is able to solve and find eigenfunctions for a multielectronic system, now taking into account the Dirac-Breit Hamiltonian. Moreover, it is also capable of incorporating electron correlation and many QED effects not yet considered in the relativistic equation, such as the Lamb-shift, vacuum polarization, and the electron's self energy.
-A brief description of these contributions can be found in  appendix \textbf{Falta fazer :P}
+A brief description of these contributions can be found in  appendix \ref{ap:QED}
 
 
 
@@ -482,7 +482,7 @@ In order to use \gls{MCDFGME}, since it is written in FORTRAN, there will be a m
 
  An example of a normal atomic structure calculation for an excited Copper atom (which has a ground state configuration of $1s^2 2s^2 2p^6 3s^2 3p^6 3d^{10} 4s^1$) is as follows:
 
- One starts by choosing the excitation upper orbital, and by  writing in a text file all the possible 1 hole configurations from where the electron may have originated from. An example can be found in Annex ????. This represents all the possible excited states where the electron is in the chosen orbital.
+ One starts by choosing the excitation upper orbital, and by  writing in a text file all the possible 1 hole configurations from where the electron may have originated from. An example can be found in Annex~\ref{an:input}. This represents all the possible excited states where the electron is in the chosen orbital.
  
  The same process is now performed for a 2 hole configuration, where an additional ionization occurred. This represents the possible states after the occurrence of the Auger process, which is in competition with the radiative decay.
 

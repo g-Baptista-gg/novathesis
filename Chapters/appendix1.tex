@@ -8,9 +8,9 @@
 
 \typeout{NT FILE appendix1.tex}
 
-\chapter{The Breit Hamiltonian Equations}\label{ap:Breit}
+\chapter{The Breit Hamiltonian Operators}\label{ap:Breit}
 
-Note: This equations are valid for the electrons in an atom.
+Note: This operators are valid for the electrons in an atom.
 
 
 The free particle energy:
@@ -27,14 +27,35 @@ The electron-nucleus Coulomb attraction:
 The electron-electron Coulomb repulsion:
 
 \begin{equation}
-    H_2 = \displaystyle \sum_{i>j}\frac{e^2}{r_{ij}}
+    H_2 = \displaystyle \sum_{i<j}\frac{e^2}{r_{ij}}
 \end{equation}
 
-asdkjhdajkhdsajdhjska:
+Incorporates the relativistic apparent mass  - velocity dependance:
 
 \begin{equation}
     H_3 = -\frac{1}{8 {m_e}^3 c^2}\sum_{i}^{N} p_i^4
 \end{equation}
 
 
-ACABAR O RESTO
+Electric field retardation and magnetic dipole interaction:
+
+\begin{equation}
+   H_4= -\frac{e^2}{2{m_e}^2 c^2}\sum_{i<j} \qty[\frac{\vb*{p}_i\cdot \vb*{p}_j}{r_{ij}}+\frac{\qty(\vb*{r_{ij}}\cdot\vb*{p}_{ij})\qty(\vb*{r}_{ij}\cdot\vb*{p}_j)}{{r_{ij}}^3}]
+\end{equation}
+
+Darwin's term, accounts for the electron's quantum fluctuation motion:
+
+\begin{equation}
+   H_5=\frac{\pi e \hbar^2}{2{m_e}^2c^2}\sum_{i<j} \frac{Z}{2}\qty[\delta\qty(\vb*{r}_i)+\delta\qty(\vb*{r}_j)]+\delta\qty(\vb*{r}_{ij})                           
+\end{equation}
+
+And the last two operators, for the consideration of spin orbit interactions:
+
+\begin{equation}
+    H_6 = \frac{e^2\hbar^2}{2{m_e}^2 c^2}\sum_{i<j}\qty(Z\frac{\vb*{r}_i\cross\vb*{p}_i}{{r_i}^3} - \frac{\vb*{r}_{ij}\cross\vb*{p}_{i}}{{r_{ij}}^3}+2\frac{\vb*{r}_{ij}\cross\vb*{p}_j}{{r_{ij}}^3})\vb*{s}_i+
+    \qty(Z\frac{\vb*{r}_j\cross\vb*{p}_j}{{r_j}^3} - \frac{\vb*{r}_{ji}\cross\vb*{p}_{j}}{{r_{ij}}^3}+2\frac{\vb*{r}_{ji}\cross\vb*{p}_i}{{r_{ij}}^3})\vb*{s}_j
+\end{equation}
+
+\begin{equation}
+    H_7= \frac{e^2\hbar^2}{{m_e}^2 c^2}\sum_{i<j}\qty(-\frac{8\pi}{3}\vb*{s}_i\cdot\vb*{s}_j\ \delta\qty(\vb*{r}_{ij}) + \frac{1}{{\vb*{r}_{ij}}^3}\qty[\vb*{s}_i\cdot\vb*{s}_j-\frac{3\qty(\vb*{s}_i\cdot\vb*{r}_{ij})\qty(\vb*{s}_j\cdot\vb*{r}_{ij})}{{\vb*{r}_{ij}}^2}]   )
+\end{equation}
